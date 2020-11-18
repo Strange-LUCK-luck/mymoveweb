@@ -4,19 +4,20 @@ const mongoose = require('mongoose');
 require('../db/mgdb.js')
 
 // 数据库的构造函数
-const MoviesCms = mongoose.model('admins', {
-    username: String,
-    password: String
-}, 'admins');
+// const MoviesCms = mongoose.model('movies', 'movies');
+
+var movies = mongoose.model('movies', {
+
+}, 'movies');
 
 
 class LoginModel{
     constructor(){
 
     }
-    logindata(){
+    FindMovie(){
         return new Promise((resolve, reject) => {
-            MoviesCms.find().exec((error, data) => {
+            movies.find().exec((error, data) => {
                 if (error) {
                     reject(error);
                 } else {
